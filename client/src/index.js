@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import Getsingle from './Component/getsingle';
+import Updateone from './Component/updateone';
 import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter,RouterProvider, useParams} from 'react-router-dom'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
   {path:':id',element:<Getsingle/>},
+  {path:'/Update/:id',element:<Updateone/>},
   {path:'/',element:<App />},
   {path:'/*',element:<div>Error 404!</div>}
 ])

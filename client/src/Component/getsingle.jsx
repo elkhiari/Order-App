@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import 'flowbite'
 import { useParams } from "react-router-dom"
 import '../App.css'
 import axios from "axios"
@@ -19,6 +20,7 @@ export default function GetOne()
     const HandleDelete = async ()=>{
         try {
             await axios.delete("http://localhost:3030/api/v1/order/"+id)
+            window.location.replace('http://localhost:3000/');
         } catch (error) {
             console.log(null)
 
@@ -54,7 +56,7 @@ export default function GetOne()
                 <div id="dropdown" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
                 <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
                     <li>
-                        <a href="#" className="text-center block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Update</a>
+                        <a href={'/update/'+id} className="text-center block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Update</a>
                     </li>
                     <li>
                         <button data-modal-target="popup-modal" data-modal-toggle="popup-modal"  href="#" className="block px-4 py-2 hover:bg-red-100 hover:text-red-700 hover:font-bold dark:hover:bg-gray-600 dark:hover:text-white w-full">Delete</button>
